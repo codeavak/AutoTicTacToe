@@ -35,21 +35,21 @@ namespace TicTacToe
             moveCounter = 1;
             whosTurn = rnd.Next(0, 2) == 1 ? "X" : "O";
 
-            while (checkWin() == 0 && moveCounter < 10)
+            while (CheckWin() == 0 && moveCounter < 10)
             {
-                play();
+                Play();
                 moveCounter++;
             }
-            int result = checkWin();
+            int result = CheckWin();
             DrawBoard();
-            if (checkWin() == 1)
+            if (CheckWin() == 1)
                 txtResult.Text = "Player 1 won!";
             else if (result == 2)
                 txtResult.Text = "Player 2 won!";
             else txtResult.Text = "We have a Tie!";
 
         }
-        void play()
+        void Play()
         {
             int row, column;
             row = rnd.Next(0, 3);
@@ -82,7 +82,7 @@ namespace TicTacToe
                 }
 
         }
-        int checkWin()
+        int CheckWin()
         {
             if (gameBoard[0, 0] == "X" && gameBoard[0, 1] == "X" && gameBoard[0, 2] == "X" ||
 
